@@ -314,11 +314,15 @@ if (menuLinks.length > 0) {
 		const menuLink = e.target;
 		if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
 			const gotoBlock = document.querySelector(menuLink.dataset.goto);
+			const iconMenu = document.querySelector('.menu__icon');
+			const menuBody = document.querySelector('.menu__body');
 			const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('header').offsetHeight;
 			window.scrollTo({
 				top: gotoBlockValue,
 				behavior: "smooth"
 			});
+			iconMenu.classList.remove('_active');
+			menuBody.classList.remove('_active');
 			e.preventDefault();
 		}
 	}
